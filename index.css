@@ -29,12 +29,14 @@ img {
     height: 40px;
     padding-top: 74vh;
 }
+
 #myContainer {
     width: 400px;
     height: 400px;
     position: relative;
     background: yellow;
-  }
+}
+
 #myAnimation {
     width: 100px;
     height: 100px;
