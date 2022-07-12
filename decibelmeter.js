@@ -305,6 +305,3 @@ meterEl.addEventListener('click', function (e) {
         meter.listen();
 });
 
-// while(meter.listening) {
-//     dbLevel -= 0.1
-// }
