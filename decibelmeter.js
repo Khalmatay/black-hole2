@@ -263,7 +263,7 @@ var meterEl = document.getElementById('meter')
 // Decibel Meter
 
 var meter = DecibelMeter.create('meter');
-dbLevel = document.getElementById('db-level')
+let dbLevel = document.getElementById('db-level')
 
 // listen for audio sources to be ready
 
@@ -283,7 +283,6 @@ meter.on('stop-listening', function (meter) {
 meterEl.addEventListener('click', function (e) {
     if (meter.listening){
         meter.stopListening();
-        draw()
     }
     else
         meter.listen();
