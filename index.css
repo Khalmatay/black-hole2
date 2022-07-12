@@ -10,7 +10,7 @@ body {
     height:80vh;
     background-color: yellow;
     overflow: auto;
-    position: relative;
+
 }
 
 .floor {
@@ -29,13 +29,14 @@ body {
 .galaxys {
     width: 40px;
     height: 100px;
-    padding-top: 74vh;
+    
+    position: absolute
 }
 
 #myContainer {
     width: 400px;
     height: 400px;
-    position: relative;
+    position: absolute;
     background: yellow;
   }
 
@@ -53,3 +54,4 @@ body {
 #db-level {
     color: white;   
 }
+html { overflow:  hidden; }

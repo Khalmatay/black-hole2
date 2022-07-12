@@ -9,7 +9,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chingizof/black-hole.git"
-    
   },
   "keywords": [],
   "author": "",
@@ -19,6 +18,7 @@
   },
   "homepage": "https://github.com/chingizof/black-hole#readme",
   "dependencies": {
-    "decibel-meter": "^2.0.0"
+    "decibel-meter": "^2.0.0",
+    "jquery": "^3.6.0"
   }
 }
