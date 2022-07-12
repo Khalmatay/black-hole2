@@ -41,13 +41,13 @@ body {
 
 #myAnimation {
     
-    position: absolute;
    
   }
 #stars{
     width: 100px;
     height: 100px; 
-    
+    position: absolute;
+    margin-right: 10px;
 }
 
 #db-level {
