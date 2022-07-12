@@ -272,17 +272,7 @@ meter.on('ready', function (meter, sources) {
     meter.connect(mic); // connect to mic
 });
 
-// adjust displayed level when audio sampled
 
-meter.on('sample', function (dB, percent, level) {
-   
-        dbLevel.innerHTML = parseInt(percent*100)
-        if (percent*100>30){
-            document.body.style.backgroundColor = "red";
-        } else {
-            document.body.style.backgroundColor = "white";
-        } 
-});
 
 // change element class when meter starts listening
 
@@ -299,9 +289,31 @@ meter.on('stop-listening', function (meter) {
 // clicking the meter element will toggle listening
 
 meterEl.addEventListener('click', function (e) {
-    if (meter.listening)
+    if (meter.listening){
         meter.stopListening();
+        draw()
+    }
     else
         meter.listen();
 });
 
+
+///////// hui
+
+let hole = document.getElementById("black-hole")
+
+draw = () => {
+    // adjust displayed level when audio sampled
+
+    meter.on('sample', function (dB, percent, level) {
+    
+        dbLevel.innerHTML = parseInt(percent*100)
+        if (percent*100>30){
+            document.body.style.backgroundColor = "red";
+            hole.getBoundingClientRect().y = 50
+        } else {
+            document.body.style.backgroundColor = "white";
+            hole.getBoundingClientRect().y = 150
+        } 
+    });
+}
