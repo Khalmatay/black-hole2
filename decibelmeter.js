@@ -272,14 +272,6 @@ meter.on('ready', function (meter, sources) {
     meter.connect(mic); // connect to mic
 });
 
-
-
-// change element class when meter starts listening
-
-meter.on('listen', function (meter) {
-    meterEl.classList.add('active');
-});
-
 // change element class when meter stops listening
 
 meter.on('stop-listening', function (meter) {
@@ -297,23 +289,12 @@ meterEl.addEventListener('click', function (e) {
         meter.listen();
 });
 
-
-///////// hui
-
 let hole = document.getElementById("black-hole")
+let wallHeight = document.getElementById("wall").getBoundingClientRect().height
 
 draw = () => {
-    // adjust displayed level when audio sampled
-
     meter.on('sample', function (dB, percent, level) {
-    
         dbLevel.innerHTML = parseInt(percent*100)
-        if (percent*100>30){
-            document.body.style.backgroundColor = "red";
-            hole.getBoundingClientRect().y = 50
-        } else {
-            document.body.style.backgroundColor = "white";
-            hole.getBoundingClientRect().y = 150
-        } 
-    });
+        hole.getBoundingClientRect().y = wallHeight*(1-percent)
+    }); 
 }
