@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+    <head>
+        <title>Move Object</title>
+        <style>
+            #field {position: relative;height: 300px;background-color: lightgreen;}
+            #ball{ position: absolute;left: 0;bottom: 50%;width: 1em;height: 1em;border-radius: 0.5em;}
+            #ball { background: red; }
+        </style>
+    </head>
+    <body>     
+        <div id="field">
+            <div id="ball"></div>
+            <script type="text/javascript">
+                window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+                var field = document.getElementById("field");
+                var ball = document.getElementById("ball");
+                var maxX = field.clientWidth - ball.offsetWidth;
+                var maxY = field.clientHeight - ball.offsetHeight;
+                var duration = 2; // seconds
+                var gridSize = 50; // pixels
+                var start = null;
+
+                function step(timestamp){ 
+                    var progress, x, y;
+                    if(start === null) start = timestamp;
+                    progress = (timestamp - start) / duration / 1000; // percent
+
+                    x = progress * maxX/gridSize; // x = ƒ(t)
+                    y = 2 * Math.sin(x); // y = ƒ(x)
+
+                    ball.style.left  = Math.min(maxX, gridSize * x) + "px";
+                    ball.style.bottom = maxY/2 + (gridSize * y) + "px";
+                    if(progress >= 1) 
+                    {   
+                        start=null;
+                    }
+                    requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            </script>
+        </div>
+    </body>
+</html>

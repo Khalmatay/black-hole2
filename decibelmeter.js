@@ -289,8 +289,12 @@ meterEl.addEventListener('click', function (e) {
 });
 
 let hole = document.getElementById("black-hole")
+
 let wallHeight = document.getElementById("wall").getBoundingClientRect().height
 
 meter.on('sample', function (dB, percent, level) {
     dbLevel.innerHTML = parseInt(percent*100)
+	console.log(parseInt(percent*100))
+
 }); 
+

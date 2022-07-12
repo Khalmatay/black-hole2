@@ -3,16 +3,17 @@
 var id = null;
 function myMove() {
   var elem = document.getElementById("stars");   
-  var pos = 0;
+  var pos = 1800 ;
+
   clearInterval(id);
   id = setInterval(frame, 1);
   function frame() {
-    if (pos == 1000) {
+    if (pos == 240) {
       clearInterval(id);
     } else {
-      pos++; 
+      pos--; 
     //   elem.style.top = pos + 'px'; 
-      elem.style.left = pos + 'px'; 
+      elem.style.left = pos +'px'; 
     }
   }
 }
