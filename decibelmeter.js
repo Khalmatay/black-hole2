@@ -280,20 +280,39 @@ meterEl.addEventListener("click", function (e) {
   } else meter.listen();
 });
 
-let hole = document.getElementById("black-hole");
+let hole = document.getElementById("galax");
 
 let con = 0;
-let disconnect = 5;
+let disconnect = 35;
+let ubite= 35;
 
 let wallHeight = document.getElementById("wall").getBoundingClientRect().height;
 
 meter.on("sample", function (dB, percent, level) {
   dbLevel.innerHTML = parseInt(percent * 100);
   con = parseInt(percent * 100);
-  while (con >= disconnect) {
-    // disconnect = parseInt(percent * 100) + 5;
-    // hole.style = "top: 50px";
-    // prop.style.hole = prop.offsetTop+ (10) + 'px';
-    console.log("dsuihddsjkdshu");
-  }
+
+  if (con>0 && con<= 45){hole.style="top: 0px"}
+  if (con>45 && con<=49){hole.style="top: 90px"}
+  if (con<=54 && con>49){hole.style="top: 260px"}
+  if (con>54 && con<=60){hole.style="top: 430px"}
+  if (con>60){hole.style="top: 600px"}
+
+
+//   hole.style="top: 100px";
+//   if (con >disconnect) {
+//     disconnect = parseInt(percent * 100);
+// 	ubite = parseInt(percent * 100);
+//     // hole.style = "top: 50px";
+// 	hole.style.top = hole.offsetTop+"1px";
+//     console.log("vozraste");
+//   }
+//   if (con <ubite) {
+//     ubite = parseInt(percent * 100);
+// 	disconnect = parseInt(percent * 100);
+//     // hole.style = "top: 50px";
+// 	hole.style.top = hole.offsetTop+"-1px";
+// //     console.log("ubite");
+//   }
+
 });
