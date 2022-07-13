@@ -298,7 +298,7 @@ meter.on("sample", function (dB, percent, level) {
   if (con>54 && con<=60){hole.style="top: 430px"}
   if (con>60){hole.style="top: 600px"}
 
-
+  
 //   hole.style="top: 100px";
 //   if (con >disconnect) {
 //     disconnect = parseInt(percent * 100);
