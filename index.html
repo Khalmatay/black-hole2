@@ -22,9 +22,33 @@
 
     <script src="decibelmeter.js"></script>
     <script src="index.js"></script>
+    
+    
     <script>
-		
-     
+        function myMove() {
+        
+                var box1 = document.getElementById("galax");
+                var box2 = document.getElementById("stars");
+        
+                function rect2Rect(obj1, obj2) {
+                return ( obj1.offsetLeft <= obj2.offsetLeft + obj2.offsetWidth && obj1.offsetLeft + obj1.offsetWidth  >=  obj2.offsetLeft && obj1.offsetTop + obj1.offsetHeight >=  obj2.offsetTop && obj1.offsetTop <= obj2.offsetTop +  obj2.offsetHeight );
+                }
+
+                function move() {
+                    if(!rect2Rect(box1, box2)) {
+                        setTimeout(function() {
+                        box2.style.left = box2.offsetLeft - 5 + "px";
+                        box2.style.top = box2.offsetTop + 1 + "px";
+                        box1.style.top = box1.offsetTop + 0 + "px";
+                        move();}, 10);
+                    }
+                    else{
+                    alert("Столкновение");
+                    }
+                }
+                move();
+        } 
+        
     
     
     
